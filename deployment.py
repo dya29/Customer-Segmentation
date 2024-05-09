@@ -77,12 +77,12 @@ st.text("Jl. KNPI No 22 Ciseureuh Purwakarta")
 st.markdown("[Instagram](https://www.instagram.com/kaosdisablon/)")
 st.markdown("---")
 
+#data
 df2 = pd.read_csv("daftar-pelanggan.csv")
 df2['ID'] = df2['ID'].astype('str')
 if data == "Data Pelanggan" :
     st.subheader("Data Pelanggan")
     st.write(df2)
-
 
 if data == "Isi Dataset" :
     st.subheader("Isi Dataset")
@@ -176,25 +176,8 @@ if clus == "Silhouette Coefficient" :
     st.pyplot(fig)
     st.write("**Menunjukkan bahwa nillai yang paling mendekati 1 yaitu dengan jumlah cluster 3.** Tingginya nilai Silhouette Coefficient mengindikasikan bahwa data yang diuji tercluster dengan baik, yaitu memiliki jarak yang besar atau jauh antar satu cluster ke cluster lain, dan jarak yang rendah atau dekat antar objek dalam suatu cluster yang sama.")
 
-## Plot Distance
-plt.figure(figsize=(10, 7))
 
-# Instantiate the clustering model and visualizer
-model = KMeans(clust)
-visualizer = InterclusterDistance(model)
 
-visualizer.fit(X_scaled)  # Fit the data to the visualizer
-
-# Simpan plot ke dalam BytesIO
-buffer_map = io.BytesIO()
-visualizer.show(outpath=buffer_map)  # Menampilkan visualisasi dan menyimpannya ke buffer
-buffer_map.seek(0)
-
-if kmean == "Intercluster Distance Map" :
-    st.subheader("Intercluster Distance Map")
-    st.image(buffer_map)
-    st.write("**Klaster yang Berdekatan:** Klaster yang dekat satu sama lain dalam grafik menunjukkan adanya kesamaan atau hubungan yang erat dalam fitur atau pola yang ada di dalamnya.")
-    st.write("**Klaster yang Terpisah:** Klaster yang jauh satu sama lain menandakan perbedaan atau kelompok yang lebih terpisah dalam dataset.")
 ## RFM Model
 # quartil
 quantiles = cus_data.quantile(q=[0.20,0.40,0.60,0.80])
@@ -484,6 +467,27 @@ kmeans = KMeans(n_clusters = clust).fit(X_scaled)
 kmeans.fit_predict(X_scaled)
 labels = kmeans.labels_
 rfm_trans['ClusterID']=labels
+
+## Plot Distance
+plt.figure(figsize=(10, 7))
+# Instantiate the clustering model and visualizer
+model = KMeans(clust)
+visualizer = InterclusterDistance(model)
+
+visualizer.fit(X_scaled)  # Fit the data to the visualizer
+
+# Simpan plot ke dalam BytesIO
+buffer_map = io.BytesIO()
+visualizer.show(outpath=buffer_map)  # Menampilkan visualisasi dan menyimpannya ke buffer
+buffer_map.seek(0)
+
+if kmean == "Intercluster Distance Map" :
+    st.subheader("Intercluster Distance Map")
+    st.image(buffer_map)
+    st.write("**Klaster yang Berdekatan:** Klaster yang dekat satu sama lain dalam grafik menunjukkan adanya kesamaan atau hubungan yang erat dalam fitur atau pola yang ada di dalamnya.")
+    st.write("**Klaster yang Terpisah:** Klaster yang jauh satu sama lain menandakan perbedaan atau kelompok yang lebih terpisah dalam dataset.")
+
+
 #distribution kmeans
 fig = px.pie(df, values = rfm_trans['ClusterID'].value_counts(), 
              names = (rfm_trans['ClusterID'].value_counts()).index, 
