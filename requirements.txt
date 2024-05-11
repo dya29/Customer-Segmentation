@@ -14,7 +14,7 @@ yellowbrick==1.5
 datetime
 squarify==0.4.3
 mpld3==0.5.5
-ydata-profiling @ https://github.com/pandas-profiling/pandas-profiling/archive/master.zip
+ydata-profiling
 pydantic==2.7.1
 pydantic_settings
 visions==0.7.5
