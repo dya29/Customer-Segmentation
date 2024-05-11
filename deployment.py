@@ -498,7 +498,7 @@ rfm_trans['ClusterID']=labels
 
 import pandas as pd
 import streamlit as st
-from ydata_profiling import ProfileReport
+from pandas_profiling import ProfileReport
 from pydantic_settings import BaseSettings
 report = ProfileReport(rfm_trans, title="Report", html={'style': {'full_width':True}}, explorative=True, missing_diagrams={'bar': True})
 
