@@ -58,12 +58,42 @@ plt.style.use('seaborn')
 # Navigation
 clust = st.sidebar.slider("Pilih jumlah cluster : ", 2,9,3,1)
 
-data = st.sidebar.radio("Data",['None','Isi Dataset','Data Pelanggan'])
-clus = st.sidebar.radio("Evaluation N Cluster",['None','Elbow Method','Silhouette Coefficient'])
-rfm = st.sidebar.radio("Visualization of RFM Segments", ['None','Pie Chart','Histogram','Treemap','Barplot','Line Plot Avg','Treemap Squarify','Word Cloud','Scatter Matrix Pairplot','Scatter 3d Plot'])
-kmean = st.sidebar.radio("Visualization of K-Means Segments", ['None','Intercluster Distance Map','Pie Chart'])
-output = st.sidebar.radio("Karakteristik Pelanggan dan Strategi Pemasaran",['None','RFM Segments','K-Means Segments'])
-output2 = st.sidebar.radio("Hasil Segmentasi Pelanggan", ['None','RFM Segments','K-Means Segments'])
+data = st.sidebar.selectbox(
+   "Data",
+   ("Isi Dataset","Data Pelanggan"),
+   index=None,
+   placeholder="Select...",
+)
+clus = st.sidebar.selectbox(
+   "Evaluation N Cluster",
+   ("Elbow Method","Silhouette Coefficient"),
+   index=None,
+   placeholder="Select...",
+)
+rfm = st.sidebar.selectbox(
+   "Visualization of RFM Segments",
+   ("Pie Chart","Histogram","Treemap","Barplot","Line Plot Avg","Treemap Squarify","Word Cloud","Scatter Matrix Pairplot","Scatter 3d Plot"),
+   index=None,
+   placeholder="Select...",
+)
+kmean = st.sidebar.selectbox(
+   "Visualization of K-Means Segments",
+   ("Intercluster Distance Map", "Pie Chart"),
+   index=None,
+   placeholder="Select...",
+)
+output = st.sidebar.selectbox(
+   "Karakteristik Pelanggan dan Strategi Pemasaran",
+   ("RFM Segments","K-Means Segments"),
+   index=None,
+   placeholder="Select...",
+)
+output2 = st.sidebar.selectbox(
+   "Hasil Segmentasi Pelanggan",
+   ("RFM Segments","K-Means Segments"),
+   index=None,
+   placeholder="Select...",
+)
 
 ## Read dataset
 df = pd.read_csv('dataset-inisialisasi.csv')
@@ -72,7 +102,6 @@ df['Date'] = pd.to_datetime(df['Date'],infer_datetime_format=True)
 
 
 st.title("Customer Segmentation Kaosdisablon")
-st.markdown("---")
 
 #data
 df2 = pd.read_csv("daftar-pelanggan.csv")
@@ -129,6 +158,8 @@ preprocessor = Pipeline(
     )
 X = cus_data.drop('ID',axis=1)
 X_scaled = pd.DataFrame(preprocessor.fit_transform(X),columns=['PC_1','PC_2'])
+
+
 
 #elbow method
 ssd = []
@@ -464,6 +495,22 @@ kmeans = KMeans(n_clusters = clust).fit(X_scaled)
 kmeans.fit_predict(X_scaled)
 labels = kmeans.labels_
 rfm_trans['ClusterID']=labels
+
+import pandas as pd
+import streamlit as st
+from ydata_profiling import ProfileReport
+from pydantic_settings import BaseSettings
+report = ProfileReport(rfm_trans, title="Report", html={'style': {'full_width':True}}, explorative=True, missing_diagrams={'bar': True})
+
+# Simpan laporan ke dalam file HTML
+report.to_file("report.html")
+
+# Baca isi file HTML
+html_file = open("report.html", "r")
+html_content = html_file.read()
+
+# Menampilkan laporan HTML dalam aplikasi Streamlit sebagai komponen HTML
+st.components.v1.html(html_content, width=1000, height=1000, scrolling=True)
 
 ## Plot Distance
 plt.figure(figsize=(10, 7))
