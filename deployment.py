@@ -605,17 +605,17 @@ if output == "RFM Segments" :
     st.write("•	Karakteristik: Pelanggan inti yang pembelian terakhirnya lebih dari satu bulan yang lalu.")
     st.write("•	Strategi: Menawarkan penawaran terbatas atau rekomendasi yang dipersonalisasi untuk mempertahankan hubungan dengan mereka.")
     st.write("**About To Sleep**")
-    st.write("•	Karakteristik: Terakhir kali melakukan pembelian jauh sebelumnya, tetapi dalam 4 minggu terakhir mereka telah mengunjungi situs atau membuka email.")
-    st.write("•	Strategi: Membuat subjek email yang sangat dipersonalisasi atau memberikan diskon spesifik pada produk tertentu untuk membangkitkan kembali minat mereka.")
+    st.write("•	Karakteristik: Terakhir kali melakukan pembelian jauh sebelumnya, tetapi dalam 4 minggu terakhir mereka telah mengunjungi situs atau membuka pesan.")
+    st.write("•	Strategi: Membuat subjek pesan yang sangat dipersonalisasi atau memberikan diskon spesifik pada produk tertentu untuk membangkitkan kembali minat mereka.")
     st.write("**Cannot Lose Them But Losing**")
     st.write("•	Karakteristik: Melakukan pembelian besar dan sering, namun sudah lama tidak kembali.")
     st.write("•	Strategi: Mencoba memenangkan mereka kembali melalui perpanjangan layanan atau produk baru. Fokus pada personalisasi tinggi untuk mempertahankan mereka.")
     st.write("**At Risk**")
     st.write("•	Karakteristik: Mirip dengan 'Cannot Lose Them' namun dengan nilai moneter dan frekuensi yang lebih rendah.")
-    st.write("•	Strategi: Menyediakan sumber daya yang membantu di situs web atau mengirim email yang dipersonalisasi untuk mempertahankan hubungan dengan mereka.")
+    st.write("•	Strategi: Menyediakan sumber daya yang membantu di situs web atau mengirim pesan yang dipersonalisasi untuk mempertahankan hubungan dengan mereka.")
     st.write("**Hibernating Customers**")
     st.write("•	Karakteristik: Pelanggan yang sebelumnya melakukan pembelian yang lebih kecil dan jarang, tetapi sudah lama tidak melakukan pembelian.")
-    st.write("•	Strategi: Mengikutsertakan mereka dalam komunikasi email standar, tetapi memeriksa secara teratur agar konten Anda tidak dianggap sebagai spam. Tidak perlu mengalokasikan sumber daya berlebih di segmen ini.")
+    st.write("•	Strategi: Mengikutsertakan mereka dalam komunikasi pesan standar, tetapi memeriksa secara teratur agar konten Anda tidak dianggap sebagai spam. Tidak perlu mengalokasikan sumber daya berlebih di segmen ini.")
     st.write("**Lost Customers**")
     st.write("•	Karakteristik: Melakukan pembelian terakhir sudah lama dan tidak ada interaksi sama sekali dalam 4 minggu terakhir.")
     st.write("•	Strategi: Membangkitkan kembali minat mereka melalui kampanye outreach, namun jika tidak berhasil, lebih baik fokus pada segmen lain yang lebih responsif.")
@@ -625,253 +625,253 @@ if output == "K-Means Segments" :
     st.markdown("---")
     if clust == 2 :
         duaa = """
-        \n**Cluster 0: "Diverse Engagement & Retention Focus"**
+        \n**Cluster 0: "Occasional Spenders" (Pembeli Sesekali)**
         \n•	Karakteristik Pelanggan:
-            Terdiri dari campions, promising, yang memerlukan perhatian, pelanggan baru, potensial loyalist, loyal, hibernating, about to sleep.
+            Cluster ini memiliki nilai frekuensi yang rendah dan nilai monetary yang relatif rendah, menunjukkan bahwa pelanggan dalam cluster ini cenderung berbelanja secara sporadis atau sesekali.
         \n•	Strategi Pemasaran:
-            Fokus pada berbagai metode retensi dan peningkatan keterlibatan dengan pendekatan yang luas.
-        \n**Cluster 1: "High-Risk Reactivation & Retention"**
+            okus pada meningkatkan keterlibatan dengan menawarkan promosi khusus saat pelanggan melakukan pembelian, memperkuat hubungan dengan komunikasi yang relevan dan bermanfaat, serta menyediakan insentif untuk meningkatkan frekuensi pembelian.
+        \n**Cluster 1:  "Frequent Buyers" (Pembeli Rutin)**
         \n•	Karakteristik Pelanggan:
-            Melibatkan pelanggan yang hibernating, about to sleep, memerlukan perhatian, pelanggan baru, potensial, at risk, cannot lose, promising, kehilangan, loyal, campions.
+            Cluster ini memiliki nilai frekuensi yang tinggi dan nilai monetary yang tinggi, menunjukkan bahwa pelanggan dalam cluster ini cenderung berbelanja secara teratur dan memberikan kontribusi finansial yang besar bagi perusahaan.
         \n•	Strategi Pemasaran:
-            Strategi yang terfokus pada reaktivasi dan retensi tingkat tinggi, memperhitungkan risiko yang beragam dalam kehilangan pelanggan.
+            Pertahankan keterlibatan dengan terus memberikan nilai tambah dan pengalaman belanja yang memuaskan, berikan insentif untuk memperkuat loyalitas mereka, kirimkan promosi eksklusif untuk mengapresiasi dukungan mereka
         """
         st.markdown(duaa)
     if clust == 3 :
         tigaa = """
-        \n**Cluster 0: "Versatile Engagement & Growth Potential"**
+        \n**Cluster 0: "Premium Shoppers"**
         \n•	Karakteristik Pelanggan:
-            Terdiri dari campions, promising, yang memerlukan perhatian, pelanggan baru, potensial loyalist, dan loyal.
+            Memiliki nilai Frequency dan Monetary yang tinggi, menunjukkan bahwa pelanggan dalam cluster ini adalah pembeli yang aktif dan memberikan kontribusi finansial yang besar bagi perusahaan. Mereka mungkin sering membeli produk dengan nilai yang tinggi.
         \n•	Strategi Pemasaran:
-            Pendekatan yang beragam untuk meningkatkan keterlibatan, pertumbuhan, dan mengoptimalkan potensi pelanggan.
-        \n**Cluster 1: "Risk Management & Retention Focus"**
+            Fokus pada pembangunan loyalitas dengan program khusus, seperti program loyalitas premium dengan insentif tambahan, diskon eksklusif, dan akses ke penawaran khusus.
+        \n**Cluster 1: "Regular Customers"**
         \n•	Karakteristik Pelanggan:
-            Melibatkan campions, promising, loyal, yang berisiko kehilangan, tidak bisa kehilangan.
+            Memiliki tingkat aktivitas belanja yang cukup tinggi dan memberikan kontribusi finansial yang signifikan bagi perusahaan. Mereka cenderung melakukan pembelian secara teratur, meskipun tidak sebanyak "Premium Shoppers".
         \n•	Strategi Pemasaran:
-            Fokus pada manajemen risiko kehilangan pelanggan, dengan penekanan pada strategi retensi yang efektif.
-        \n**Cluster 2: "Reactivation & Diverse Risk Mix"**
+            Pertahankan keterlibatan dengan menawarkan promosi berbasis frekuensi dan program reward untuk memberikan insentif kepada pelanggan yang sering berbelanja. Lakukan kampanye retensi yang bertujuan untuk memastikan bahwa pelanggan merasa dihargai dan ingin terus berbelanja.
+        \n**Cluster 2: "Inactive Customers"**
         \n•	Karakteristik Pelanggan:
-            Termasuk pelanggan yang hampir tidur, hibernating, yang memerlukan perhatian, pelanggan baru, potensial, yang berisiko kehilangan, tidak bisa kehilangan, promising, loyal, campions.
+            Memiliki nilai Recency yang tinggi, menunjukkan bahwa pelanggan dalam cluster ini cenderung tidak melakukan pembelian baru-baru ini. Selain itu, nilai Frequency dan Monetary mereka juga relatif rendah dibandingkan dengan cluster lainnya, menunjukkan bahwa mereka tidak memberikan kontribusi finansial yang signifikan bagi perusahaan. 
         \n•	Strategi Pemasaran:
-            Pendekatan yang luas untuk membangkitkan kembali minat, menyesuaikan strategi dengan berbagai tingkat risiko dan keterlibatan pelanggan.
+            Fokus pada reaktivasi dengan kampanye pemasaran khusus yang menawarkan penawaran khusus untuk pembelian berikutnya atau diskon eksklusif untuk pembelian ulang. Lakukan survei kepuasan pelanggan untuk memahami alasan di balik ketidakaktifan mereka dan identifikasi cara untuk meningkatkan pengalaman pembelian.
         """
         st.markdown(tigaa)
     if clust == 4 :
         empatt = """
-        \n**Cluster 0: "Revival & Engagement Focus"**
+        \n**Cluster 0: "Moderate Buyers"**
        \n •	Karakteristik Pelanggan:
-            Rentang pelanggan yang luas, mulai dari hibernating hingga yang berisiko kehilangan.
+            Pembelian mereka memiliki nilai tengah, dengan frekuensi yang moderat dan recency yang relatif baru. Mereka cenderung berbelanja secara stabil dengan pengeluaran yang cukup konsisten.
        \n •	Strategi Pemasaran:
-            Memfokuskan usaha untuk membangkitkan kembali minat dan meningkatkan keterlibatan, menggunakan promosi yang dipersonalisasi untuk menggerakkan mereka kembali.
-        \n**Cluster 1: "Active & Developmental Focus"**
+            Fokus pada mempertahankan keterlibatan dengan memberikan insentif kepada pelanggan untuk berbelanja lebih sering, seperti program loyalitas atau promosi diskon berdasarkan frekuensi pembelian.
+        \n**Cluster 1: "Occasional Buyers"**
        \n •	Karakteristik Pelanggan:
-            Merangkul campions, pelanggan potensial, dan yang membutuhkan perhatian tambahan.
+            Pembelian mereka terjadi secara sporadis dengan frekuensi yang rendah dan recency yang beragam. Mereka mungkin tidak sering berbelanja, namun ketika mereka melakukannya, mereka cenderung mengeluarkan jumlah yang lebih tinggi.
        \n •	Strategi Pemasaran:
-            Berfokus pada pengembangan hubungan yang lebih dalam, menawarkan program loyalitas dan promosi yang dirancang khusus.
-        \n**Cluster 2: "High-Value Retention & Risk Management"**
+            Menawarkan promosi khusus atau diskon untuk memancing pelanggan kembali ke platform, serta menyediakan rekomendasi produk yang relevan untuk meningkatkan keterlibatan mereka.
+        \n**Cluster 2: "High-Value Regular Customers"**
        \n •	Karakteristik Pelanggan:
-            Terdiri dari pelanggan yang memiliki nilai tinggi tetapi rentan terhadap risiko kehilangan.
+            Mereka adalah pelanggan dengan nilai tinggi yang berbelanja secara teratur dengan frekuensi yang tinggi dan recency yang relatif baru. Kontribusi finansial yang signifikan mereka membuat mereka menjadi aset berharga bagi perusahaan.
        \n •	Strategi Pemasaran:
-            Menjaga pelanggan tingkat lanjut dengan fokus pada retensi dan pengelolaan risiko kehilangan.
-        \n**Cluster 3: "Loyalty & Potential Focus"**
+            Fokus pada mempertahankan kepuasan pelanggan dengan memberikan pengalaman yang personal dan eksklusif, serta memperkenalkan program loyalitas atau reward yang eksklusif.
+        \n**Cluster 3: "Infrequent Low Spenders"**
        \n •	Karakteristik Pelanggan:
-            Terdiri dari campions, pelanggan potensial yang loyal, dan yang membutuhkan perhatian.
+            Mereka adalah pelanggan yang jarang berbelanja dengan frekuensi yang rendah dan recency yang sudah lama. Meskipun pengeluaran mereka relatif kecil, mereka tetap memiliki potensi untuk meningkatkan keterlibatan.
        \n •	Strategi Pemasaran:
-            Memperkuat loyalitas dengan menawarkan promosi dan program keanggotaan yang lebih memikat, serta mengimplementasikan strategi pemasaran yang lebih terfokus.
+            Mencoba untuk meningkatkan frekuensi pembelian dengan menawarkan insentif, seperti diskon spesial untuk pembelian berikutnya atau promosi eksklusif yang hanya tersedia untuk mereka.
         """
         st.markdown(empatt)
     if clust == 5 :
         limaa = """
-        \n**Cluster 0: "High-Value & Risk Management"**
+        \n**Cluster 0: "High-Value Regular Buyers"**
        \n •	Karakteristik Pelanggan:
-            Meliputi campions, pelanggan potensial, yang loyal, berisiko kehilangan, dan tidak boleh hilang.
+            Pelanggan dalam cluster ini memiliki tingkat pembelian yang tinggi, frekuensi yang cukup sering, dan recency yang relatif baru. Mereka merupakan pelanggan reguler yang memberikan kontribusi finansial yang signifikan.
        \n •	Strategi Pemasaran:
-            Fokus pada manajemen risiko dan mempertahankan pelanggan bernilai tinggi dengan penekanan pada personalisasi dan strategi retensi yang kuat.
-        \n**Cluster 1: "Comprehensive Engagement & Attention"**
+            Fokus pada mempertahankan keterlibatan dengan memberikan insentif bagi pelanggan untuk tetap berbelanja secara teratur, seperti program loyalitas dengan reward yang menarik atau promosi eksklusif.
+        \n**Cluster 1: "Occasional Buyers"**
        \n •	Karakteristik Pelanggan:
-            Menyeliputi campions, pelanggan potensial yang baru, yang memerlukan perhatian, loyal, hibernating, dan hampir tidur.
+            Pelanggan dalam cluster ini berbelanja secara sporadis dengan frekuensi yang rendah dan recency yang beragam. Meskipun demikian, mereka dapat memberikan kontribusi finansial yang cukup.
        \n •	Strategi Pemasaran:
-            Memiliki pendekatan yang holistik untuk keterlibatan, dengan strategi yang beragam untuk merangkul dan mempertahankan pelanggan.
-        \n**Cluster 2: "Loyalty & Potential Focus"**
+            Menawarkan promosi khusus atau diskon yang dapat menarik pelanggan kembali ke platform, serta menyediakan rekomendasi produk yang sesuai dengan preferensi mereka.
+        \n**Cluster 2: "Infrequent Low Spenders"**
        \n •	Karakteristik Pelanggan:
-            Terdiri dari campions, pelanggan potensial yang baru, dan yang membutuhkan perhatian, yang loyal.
+            Pelanggan dalam cluster ini jarang berbelanja dengan frekuensi yang rendah dan recency yang sudah lama. Meskipun pengeluaran mereka relatif kecil, mereka masih memiliki potensi untuk meningkatkan keterlibatan.
        \n •	Strategi Pemasaran:
-            Menekankan pada pengembangan loyalitas dan memanfaatkan potensi pelanggan yang ada.
-        \n**Cluster 3: "Revival & Retention Focus"**
+            Mencoba meningkatkan frekuensi pembelian dengan menawarkan insentif, seperti diskon untuk pembelian berikutnya atau promosi khusus yang hanya ditujukan kepada mereka.
+        \n**Cluster 3: "Moderate Buyers"**
        \n •	Karakteristik Pelanggan:
-            Melibatkan pelanggan yang hibernating, hampir tidur, yang memerlukan perhatian, baru, berisiko kehilangan, yang tidak boleh hilang, dan potensial.
+            Pelanggan dalam cluster ini memiliki tingkat pembelian yang moderat, frekuensi yang cukup, dan recency yang relatif baru. Mereka merupakan pembeli yang stabil dengan kontribusi finansial yang cukup signifikan.
        \n •	Strategi Pemasaran:
-            Menekankan pada penghidupan kembali minat dan retensi melalui promosi yang dipersonalisasi dan strategi retensi yang kuat.
-        \n**Cluster 4: "Engagement & Attention Driven"**
+            Mempertahankan keterlibatan dengan memberikan insentif kepada pelanggan untuk tetap berbelanja secara teratur, serta menyediakan promosi diskon atau reward untuk meningkatkan loyalitas.
+        \n**Cluster 4: "High-Value Infrequent Shoppers"**
         \n•	Karakteristik Pelanggan:
-            Terdiri dari campions, pelanggan potensial yang membutuhkan perhatian lebih, dan yang loyal.
+            Pelanggan dalam cluster ini memiliki tingkat pembelian yang sangat tinggi, namun frekuensi belanja yang rendah dan recency yang cukup lama. Mereka dapat memberikan kontribusi finansial yang besar, meskipun tidak berbelanja secara teratur.
         \n•	Strategi Pemasaran:
-            Fokus pada keterlibatan yang mendalam dan perhatian terhadap pelanggan yang berpotensi berkembang menjadi campions atau pelanggan setia.
+            Fokus pada mempertahankan hubungan dengan memberikan perlakuan istimewa, seperti akses eksklusif ke produk atau layanan, serta program loyalitas dengan reward yang menarik.
         """
         st.markdown(limaa)
     if clust == 6 :
         enamm = """
-        \n**Cluster 0: "Engaged & Potential Loyalty"**
+        \n**Cluster 0: "Low-Spending Infrequent Shoppers"**
        \n •	Karakteristik Pelanggan:
-            Meliputi campions, yang menunjukkan potensi loyalitas, loyal, yang memerlukan perhatian.
+            Pelanggan dalam cluster ini memiliki nilai pembelian yang rendah, frekuensi belanja yang jarang, dan recency yang sudah lama. Mereka cenderung tidak aktif dalam berbelanja.
        \n •	Strategi Pemasaran:
-            Fokus pada mempertahankan keterlibatan yang kuat, menawarkan insentif untuk memperkuat keterikatan, dan memberikan perhatian ekstra kepada pelanggan.
-        \n**Cluster 1: "Diverse Engagement & Risk"**
+            Membuat promosi khusus atau diskon yang menarik untuk mendorong pelanggan dalam cluster ini agar lebih sering berbelanja. Menawarkan insentif tambahan untuk pembelian berulang dapat membantu meningkatkan keterlibatan mereka.
+        \n**Cluster 1: "Moderate Spending Regular Shoppers"**
        \n •	Karakteristik Pelanggan:
-            Menyeliputi pelanggan yang hampir tidur, hibernating, yang memerlukan perhatian, baru, berisiko kehilangan, dan pelanggan berpotensi.
+            Pelanggan dalam cluster ini memiliki nilai pembelian yang moderat, frekuensi belanja yang cukup sering, dan recency yang relatif baru. Mereka merupakan pembeli reguler dengan kontribusi finansial yang stabil.
        \n •	Strategi Pemasaran:
-            Memiliki pendekatan yang beragam untuk keterlibatan, dengan fokus pada mengelola risiko dan menarik kembali minat yang terkait.
-        \n**Cluster 2: "Loyalty & Retention Focus"**
+            Fokus pada mempertahankan keterlibatan dengan memberikan insentif kepada pelanggan untuk terus berbelanja secara teratur. Program loyalitas dengan reward yang menarik atau promosi berbasis frekuensi pembelian dapat membantu meningkatkan loyalitas pelanggan.
+        \n**Cluster 2: "High-Value Frequent Shoppers"**
        \n •	Karakteristik Pelanggan:
-            Terdiri dari campions, yang menunjukkan potensi loyalitas, yang setia, berisiko kehilangan.
+            Pelanggan dalam cluster ini memiliki nilai pembelian yang sangat tinggi, frekuensi belanja yang tinggi, dan recency yang relatif baru. Mereka adalah pembeli yang aktif dan memberikan kontribusi finansial yang besar bagi perusahaan.
        \n •	Strategi Pemasaran:
-            Menekankan pada strategi retensi dan pengembangan loyalitas yang kuat.
-        \n**Cluster 3: "Comprehensive Attention & Engagement"**
+            Menyediakan pengalaman belanja yang personal dan eksklusif untuk mempertahankan hubungan dengan pelanggan dalam cluster ini. Program loyalitas dengan reward yang eksklusif atau promosi produk yang relevan dapat membantu mempertahankan loyalitas mereka.
+        \n**Cluster 3: "Moderate Spending Occasional Shoppers"**
        \n •	Karakteristik Pelanggan:
-            Meliputi campions, pelanggan potensial yang memerlukan perhatian, yang baru, yang loyal, yang hibernating, hampir tidur.
+            Pelanggan dalam cluster ini memiliki nilai pembelian yang moderat, frekuensi belanja yang sporadis, dan recency yang relatif baru. Mereka cenderung berbelanja secara teratur namun tidak sering.
        \n •	Strategi Pemasaran:
-            Menekankan pada keterlibatan menyeluruh, memberikan perhatian khusus, dan retensi pelanggan.
-        \n**Cluster 4: "Risk & Value Management"**
+            Membuat promosi khusus atau diskon untuk menarik pelanggan dalam cluster ini kembali ke platform. Menawarkan insentif untuk pembelian berikutnya atau rekomendasi produk yang relevan dapat membantu meningkatkan keterlibatan mereka.
+        \n**Cluster 4: "High-Spending Regular Shoppers"**
        \n •	Karakteristik Pelanggan:
-            Terdiri dari pelanggan berisiko kehilangan, potensial, loyal, dan campions.
+            Pelanggan dalam cluster ini memiliki nilai pembelian yang tinggi, frekuensi belanja yang cukup sering, dan recency yang relatif baru. Mereka adalah pembeli reguler yang memberikan kontribusi finansial yang signifikan.
        \n •	Strategi Pemasaran:
-            Fokus pada manajemen risiko dan mempertahankan pelanggan dengan nilai tinggi melalui strategi retensi yang kuat.
-        \n**Cluster 5: "Loyalty & Attention Balance"**
+            okus pada mempertahankan kepuasan pelanggan dengan memberikan pengalaman belanja yang personal dan eksklusif. Program loyalitas dengan reward yang menarik atau promosi diskon untuk pembelian berikutnya dapat membantu mempertahankan keterlibatan mereka.
+        \n**Cluster 5: "Very High-Value Infrequent Shoppers"**
        \n •	Karakteristik Pelanggan:
-            Melibatkan campions, pelanggan potensial, yang memerlukan perhatian, yang loyal.
+            Pelanggan dalam cluster ini memiliki nilai pembelian yang sangat tinggi, namun frekuensi belanja yang rendah, dan recency yang cukup lama. Meskipun tidak sering berbelanja, mereka memberikan kontribusi finansial yang besar.
        \n •	Strategi Pemasaran:
-            Menemukan keseimbangan antara keterlibatan dan perhatian, mempertahankan loyalitas sambil memberikan perhatian yang diperlukan.
+            Fokus pada menjaga hubungan dengan memberikan perlakuan istimewa kepada pelanggan dalam cluster ini. Menawarkan akses eksklusif ke produk atau layanan, serta program loyalitas dengan reward yang menarik dapat membantu mempertahankan loyalitas mereka.
         """
         st.markdown(enamm)
     if clust == 7 :
         tujuhh = """
-        \n**Cluster 0: "Diverse Engagement & Risks"**
+        \n**Cluster 0: "Regular Moderate-Spenders"**
        \n •	Karakteristik Pelanggan:
-            Melibatkan hampir semua jenis pelanggan dengan tingkat keterlibatan dan risiko yang beragam.
+            Pembeli dalam cluster ini berbelanja secara teratur dengan jumlah belanja yang moderat.
        \n •	Strategi Pemasaran:
-            Memerlukan pendekatan yang beragam dalam mengelola keterlibatan dan risiko untuk setiap jenis pelanggan dalam segmen ini.
-        \n**Cluster 1: "Potential Loyalists & New Customer Focus"**
+            Tawarkan program loyalitas atau diskon reguler untuk mempertahankan kebiasaan belanja mereka.
+        \n**Cluster 1: "Infrequent High-Spenders"**
        \n •	Karakteristik Pelanggan:
-            Termasuk campions, yang menunjukkan potensi loyalitas, dan pelanggan baru.
+            Meskipun jarang berbelanja, pembeli dalam cluster ini menghabiskan jumlah yang signifikan setiap kali mereka berbelanja.
        \n •	Strategi Pemasaran:
-            Fokus pada membangun hubungan awal yang kuat dengan pelanggan baru dan menciptakan program loyalitas untuk menarik minat pelanggan potensial.
-        \n**Cluster 2: "Loyal Attention & Promising Engagement"**
+            Berikan penawaran khusus atau diskon untuk memancing pembelian lebih lanjut dari mereka.
+        \n**Cluster 2: "High-Value Occasional Buyers"**
        \n •	Karakteristik Pelanggan:
-            Meliputi campions yang memerlukan perhatian dan loyal.
+            Meskipun jarang berbelanja, pembeli dalam cluster ini menghabiskan jumlah yang besar setiap kali mereka berbelanja.
        \n •	Strategi Pemasaran:
-            Menawarkan strategi retensi yang kuat dan perhatian khusus kepada pelanggan setia dalam segmen ini.
-        \n**Cluster 3: "Comprehensive Attention & Engagement"**
+            Fokus pada membangun hubungan dan memberikan insentif untuk pembelian lebih lanjut.
+        \n**Cluster 3: "Occasional Moderate-Spenders"**
        \n •	Karakteristik Pelanggan:
-            Melibatkan campions, pelanggan potensial yang memerlukan perhatian, loyal, hibernating, dan hampir tidur.
+            Pembeli dalam cluster ini berbelanja secara tidak teratur dengan jumlah belanja yang moderat.
        \n •	Strategi Pemasaran:
-            Memerlukan pendekatan holistik yang meliputi semua jenis pelanggan dalam segmen ini.
-        \n**Cluster 4: "Risk & Value Management"**
+            Tawarkan diskon atau penawaran spesial untuk mendorong pembelian lebih sering.
+        \n**Cluster 4: "Frequent Big-Spenders"**
        \n •	Karakteristik Pelanggan:
-            Terdiri dari pelanggan yang berisiko kehilangan, potensial, loyal, dan campions.
+            Pembeli dalam cluster ini berbelanja secara sering dengan jumlah belanja yang besar setiap kali.
        \n •	Strategi Pemasaran:
-            Fokus pada manajemen risiko dan mempertahankan pelanggan dengan nilai tinggi melalui strategi retensi yang kuat.
-        \n**Cluster 5: "Potential Loyalty & New Customer Focus"**
+            Berikan penawaran eksklusif atau insentif pembelian lanjutan untuk mempertahankan keaktifan mereka.
+        \n**Cluster 5: "Regular Low-Spenders"**
        \n •	Karakteristik Pelanggan:
-            Termasuk campions, pelanggan potensial yang memerlukan perhatian, dan pelanggan baru.
+            Pembeli dalam cluster ini berbelanja secara teratur namun dengan jumlah belanja yang lebih rendah.
        \n •	Strategi Pemasaran:
-            Berfokus pada membangun hubungan awal yang kuat dengan pelanggan baru dan menciptakan program loyalitas untuk menarik minat pelanggan potensial.
-        \n**Cluster 6: "Retention-Focused Champions"**
+            Tawarkan diskon atau promosi khusus untuk meningkatkan nilai belanja mereka.
+        \n**Cluster 6: "Frequent Big-Spenders"**
        \n •	Karakteristik Pelanggan:
-            Melibatkan campions yang berfokus pada retensi, pelanggan potensial, loyal, dan yang berisiko kehilangan.
+            Pembeli dalam cluster ini berbelanja secara sering dengan jumlah belanja yang besar setiap kali.
        \n •	Strategi Pemasaran:
-            Menerapkan strategi retensi yang kuat dan memberikan perhatian khusus kepada pelanggan setia dalam segmen ini.
+            Fokus pada pengalaman pelanggan yang eksklusif dan penawaran khusus untuk mempertahankan tingkat pembelian mereka.
         """
         st.markdown(tujuhh)
     if clust == 8 :
         delapann = """
-        \n**Cluster 0: "Engaged Core"**
+        \n**Cluster 0: "Occasional High-Spenders"**
        \n •	Karakteristik Pelanggan:
-            Termasuk campions, loyal, dan promising.
+            Pembeli dalam cluster ini jarang berbelanja, tetapi ketika mereka melakukannya, mereka menghabiskan jumlah yang besar.
        \n •	Strategi Pemasaran:
-            Fokus pada mempertahankan keterlibatan tinggi yang sudah ada dan merencanakan untuk pertumbuhan lebih lanjut melalui program loyalitas dan promosi.
-        \n**Cluster 1: "Varied Engagement with High Potentials"**
+            Tawarkan penawaran khusus atau diskon untuk memancing pembelian lebih lanjut.
+        \n**Cluster 1: "Moderate Spenders"**
        \n •	Karakteristik Pelanggan:
-            Memiliki campion, pelanggan yang hampir tidur, hibernating, loyal, yang memerlukan perhatian, pelanggan baru, potensial loyalist, dan promising.
+            Pembeli dalam cluster ini memiliki tingkat pembelian dan frekuensi yang moderat.
        \n •	Strategi Pemasaran:
-            Memerlukan pendekatan yang disesuaikan untuk menarik kembali yang hampir tidur, membangun kembali hubungan dengan yang hibernating, dan memperkuat keterlibatan pelanggan baru dan potensial.
-        \n**Cluster 2: "Focused New & Potential Loyalists"**
+            Fokus pada memberikan pengalaman pembelian yang memuaskan untuk mempertahankan kecenderungan pembelian mereka.
+        \n**Cluster 2: "Low-Spenders"**
        \n •	Karakteristik Pelanggan:
-            Terdiri dari campions, promising, pelanggan yang memerlukan perhatian, pelanggan baru, dan potensial loyalist.
+            Pembeli dalam cluster ini memiliki nilai belanja yang relatif rendah.
        \n •	Strategi Pemasaran:
-            Menitikberatkan pada membangun hubungan awal yang kuat dengan pelanggan baru, menarik minat pelanggan potensial, dan memberikan perhatian khusus kepada yang memerlukan.
-        \n**Cluster 3: "Risk Management & Loyal Focus"**
+            Tawarkan insentif atau promosi untuk meningkatkan frekuensi pembelian mereka.
+        \n**Cluster 3: "Frequent Big-Spenders"**
        \n •	Karakteristik Pelanggan:
-            Meliputi pelanggan yang berisiko kehilangan, tidak bisa kehilangan mereka, loyal, dan promising.
+            Pembeli dalam cluster ini berbelanja secara sering dengan jumlah belanja yang besar setiap kali.
        \n •	Strategi Pemasaran:
-            Fokus pada manajemen risiko, mempertahankan pelanggan dengan nilai tinggi, dan meningkatkan keterlibatan dengan pelanggan yang loyal.
-        \n**Cluster 4: "Comprehensive Customer Engagement"**
+            Berfokus pada memberikan pengalaman belanja yang eksklusif dan penawaran khusus untuk mempertahankan keaktifan pembelian mereka.
+        \n**Cluster 4: "Occasional Moderate-Spenders"**
        \n •	Karakteristik Pelanggan:
-            Termasuk campions, promising, pelanggan yang memerlukan perhatian, pelanggan baru, potensial loyalist, dan loyal.
+            Pembeli dalam cluster ini tidak sering berbelanja, namun ketika mereka melakukannya, mereka menghabiskan jumlah yang moderat.
        \n •	Strategi Pemasaran:
-            Memerlukan pendekatan holistik yang mencakup semua jenis pelanggan untuk memastikan keterlibatan yang kuat dan retensi yang baik.
-        \n**Cluster 5: "Engagement & Loyal Focus"**
+            Tawarkan diskon atau promosi untuk memancing pembelian lebih lanjut.
+        \n**Cluster 5: "Big Spenders"**
        \n •	Karakteristik Pelanggan:
-            Melibatkan campions, promising, pelanggan yang memerlukan perhatian, dan loyal.
+            Pembeli dalam cluster ini memiliki nilai pembelian tertinggi.
        \n •	Strategi Pemasaran:
-            Menekankan strategi retensi yang kuat dan memberikan perhatian khusus kepada pelanggan setia dalam segmen ini.
-        \n**Cluster 6: "Potential Re-engagement & Varied Risks"**
+            Fokus pada memberikan pengalaman belanja yang mewah dan eksklusif untuk mempertahankan kecenderungan pembelian mereka.
+        \n**Cluster 6: "Regular Spenders"**
        \n •	Karakteristik Pelanggan:
-            Terdiri dari pelanggan yang hampir tidur, hibernating, pelanggan yang memerlukan perhatian, pelanggan baru, potensial, yang berisiko kehilangan, tidak bisa kehilangan, dan promising.
+            Pembeli dalam cluster ini berbelanja dengan frekuensi yang moderat namun konsisten.
        \n •	Strategi Pemasaran:
-            Memerlukan pendekatan berbeda untuk menarik kembali yang hampir tidur, membangun kembali hubungan dengan yang hibernating, dan meminimalkan risiko kehilangan untuk pelanggan dengan potensi tinggi.
-        \n**Cluster 7: "Focused Risk Management & Loyalty"**
+             Tawarkan program loyalitas atau diskon reguler untuk mempertahankan keaktifan pembelian mereka.
+        \n**Cluster 7: "Frequent Low-Spenders"**
        \n •	Karakteristik Pelanggan:
-            Meliputi pelanggan yang berisiko kehilangan, tidak bisa kehilangan mereka, promising, dan loyal.
+            Pembeli dalam cluster ini sering berbelanja dengan nilai belanja yang relatif rendah setiap kali.
        \n •	Strategi Pemasaran:
-            Fokus pada manajemen risiko dan retensi pelanggan dengan nilai tinggi melalui personalisasi tinggi dan strategi retensi yang kuat.
+            Fokus pada meningkatkan nilai belanja per transaksi dengan menawarkan penawaran atau insentif tambahan.
         """
         st.markdown(delapann)
     if clust == 9 :
         sembilann = """
-        \n**Cluster 0: "Retention Risk Mix"**
+        \n**Cluster 0: "Occasional Spenders"**
         \n•	Karakteristik Pelanggan:
-            Termasuk pelanggan yang hampir tidur, hibernating, yang berisiko kehilangan, tidak bisa kehilangan, dan pelanggan yang sudah hilang.
+            Pembeli dalam cluster ini berbelanja secara teratur, namun dengan nilai belanja yang cenderung lebih rendah.
         \n•	Strategi Pemasaran:
-            Fokus pada retensi pelanggan dengan risiko tinggi, mengembalikan minat pelanggan yang terlupakan, dan mendorong keterlibatan yang lebih kuat.
-        \n**Cluster 1: "Engaged Diversity & Growth Potential"**
+            Tawarkan insentif untuk meningkatkan nilai belanja per transaksi, seperti diskon tambahan untuk pembelian dalam jumlah tertentu.
+        \n**Cluster 1: "Infrequent Bargain Shoppers"**
         \n•	Karakteristik Pelanggan:
-            Melibatkan campions, promising, yang memerlukan perhatian, pelanggan baru, potensial loyalist, dan loyal.
+            Pembeli dalam cluster ini jarang berbelanja, dan ketika mereka melakukannya, mereka cenderung membeli produk dengan harga yang lebih terjangkau.
         \n•	Strategi Pemasaran:
-            Memerlukan pendekatan yang beragam untuk meningkatkan keterlibatan, pertumbuhan, dan potensi pelanggan.
-        \n**Cluster 2: "Loyalty-Driven Risk Mitigation"**
+            Fokus pada penawaran diskon atau promo yang menarik untuk mendorong pembelian dan meningkatkan frekuensi belanja.
+        \n**Cluster 2: "Frequent High-Spenders"**
        \n •	Karakteristik Pelanggan:
-            Terdiri dari pelanggan yang berisiko kehilangan, tidak bisa kehilangan, loyal, dan promising.
+            Pembeli dalam cluster ini sering berbelanja dengan nilai belanja yang tinggi.
        \n •	Strategi Pemasaran:
-            Memfokuskan pada strategi retensi untuk mengurangi risiko kehilangan pelanggan berharga.
-        \n**Cluster 3: "Re-engagement & Mixed Risk"**
+            Berfokus pada memberikan pengalaman belanja yang eksklusif dan penawaran khusus untuk mempertahankan keaktifan pembelian mereka.
+        \n**Cluster 3: "Moderate Consistent Buyers"**
        \n •	Karakteristik Pelanggan:
-            Melibatkan pelanggan yang hampir tidur, campion, hibernating, loyal, yang memerlukan perhatian, pelanggan baru, potensial loyalist, dan promising.
+            Pembeli dalam cluster ini memiliki kebiasaan belanja yang moderat dan konsisten.
        \n •	Strategi Pemasaran:
-            Memerlukan pendekatan yang berbeda untuk mendorong kembali keterlibatan dan mengatasi risiko yang beragam di dalam segmen ini.
-        \n**Cluster 4: "Loyal Risk Management"**
+            Tawarkan program loyalitas atau diskon reguler untuk mempertahankan keaktifan pembelian mereka.
+        \n**Cluster 4: "Regular Moderate-Spenders"**
        \n •	Karakteristik Pelanggan:
-            Termasuk pelanggan yang berisiko kehilangan, tidak bisa kehilangan, loyal, dan promising.
+            Pembeli dalam cluster ini berbelanja secara teratur dengan nilai belanja yang moderat.
        \n •	Strategi Pemasaran:
-            Fokus pada manajemen risiko kehilangan pelanggan yang loyal dengan mempertahankan keterlibatan mereka.
-        \n**Cluster 5: "Diverse Loyalty Focus"**
+            Berikan penawaran khusus atau insentif untuk meningkatkan nilai belanja per transaksi.
+        \n**Cluster 5: "Intermittent Budget Shoppers"**
        \n •	Karakteristik Pelanggan:
-            Melibatkan campions, promising, yang memerlukan perhatian, pelanggan baru, dan potensial loyalist.
+            Pembeli dalam cluster ini berbelanja secara tidak teratur, dan cenderung memilih produk dengan harga terjangkau.
        \n •	Strategi Pemasaran:
-            Mencakup strategi yang beragam untuk mempertahankan keterlibatan, membangun hubungan, dan mengembangkan potensi pelanggan.
-        \n**Cluster 6: "Varied Retention & Engagement Mix"**
+            Fokus pada penawaran diskon atau promo yang menarik untuk mendorong pembelian dan meningkatkan frekuensi belanja.
+        \n**Cluster 6: "Steady Moderate Buyers"**
        \n •	Karakteristik Pelanggan:
-            Terdiri dari pelanggan yang hampir tidur, hibernating, yang memerlukan perhatian, pelanggan baru, potensial, yang berisiko kehilangan, tidak bisa kehilangan, promising, dan loyal.
+            Pembeli dalam cluster ini memiliki kebiasaan belanja yang moderat dan konsisten.
        \n •	Strategi Pemasaran:
-            Memerlukan pendekatan yang luas untuk mengatasi berbagai tingkat retensi dan keterlibatan pelanggan.
-        \n**Cluster 7: "Focused Loyalty & Attention"**
+            Tawarkan program loyalitas atau diskon reguler untuk mempertahankan keaktifan pembelian mereka.
+        \n**Cluster 7: "Frequent Big-Spenders"**
        \n •	Karakteristik Pelanggan:
-            Melibatkan campions, promising, yang memerlukan perhatian, pelanggan baru, dan loyal.
+            Pembeli dalam cluster ini sering berbelanja dengan nilai belanja yang besar.
        \n •	Strategi Pemasaran:
-            Fokus pada retensi pelanggan setia dan memberikan perhatian khusus kepada mereka.
-        \n**Cluster 8: "High-Value Loyalty"**
+            Fokus pada memberikan pengalaman belanja yang mewah dan eksklusif untuk mempertahankan kecenderungan pembelian mereka.
+        \n**Cluster 8: "Consistent Low-Spenders"**
         \n•	Karakteristik Pelanggan:
-            Terdiri dari champions, loyal, dan promising.
+            Pembeli dalam cluster ini memiliki kebiasaan belanja yang konsisten, namun dengan nilai belanja yang cenderung rendah.
         \n•	Strategi Pemasaran:
-            Fokus pada strategi retensi dan penghargaan bagi pelanggan dengan nilai tinggi dan loyalitas yang konsisten.
+            Tawarkan insentif untuk meningkatkan nilai belanja per transaksi, seperti diskon tambahan untuk pembelian dalam jumlah tertentu.
         """
         st.markdown(sembilann)
