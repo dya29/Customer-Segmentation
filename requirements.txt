@@ -18,4 +18,4 @@ ydata_profiling
 pydantic==2.7.1
 pydantic_settings
 visions==0.7.5
-numba==0.59.1
+numba==0.58.1
