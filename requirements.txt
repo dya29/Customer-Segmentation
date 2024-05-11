@@ -16,3 +16,5 @@ squarify==0.4.3
 mpld3==0.5.5
 ydata_profiling
 pydantic_settings
+visions==0.7.5
+numba=0.58.1
