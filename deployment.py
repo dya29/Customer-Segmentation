@@ -71,10 +71,7 @@ df['ID'] = df['ID'].astype('str')
 df['Date'] = pd.to_datetime(df['Date'],infer_datetime_format=True)
 
 
-st.title("Customer Segmentation")
-st.header("Kaosdisablon")
-st.text("Jl. KNPI No 22 Ciseureuh Purwakarta")
-st.markdown("[Instagram](https://www.instagram.com/kaosdisablon/)")
+st.title("Customer Segmentation Kaosdisablon")
 st.markdown("---")
 
 #data
