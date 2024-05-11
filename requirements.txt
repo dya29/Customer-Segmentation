@@ -17,6 +17,5 @@ mpld3==0.5.5
 ydata-profiling
 pydantic==2.7.1
 pydantic_settings==2.2.1
-pandas-profiling==3.2.0
 visions==0.7.5
 numba==0.58.1
