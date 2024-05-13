@@ -57,7 +57,7 @@ plt.style.use('seaborn')
 
 # Navigation
 clust = st.sidebar.slider("Pilih jumlah cluster : ", 2,9,3,1)
-report = st.checkbox("Profiling Report")
+
 data = st.sidebar.selectbox(
    "Data",
    ("Isi Dataset","Data Pelanggan"),
@@ -912,13 +912,13 @@ from pydantic_settings import BaseSettings
 
 report = ProfileReport(rfm_trans, title="Report", html={'style': {'full_width':True}}, explorative=True, missing_diagrams={'bar': True})
 
-if report :
+
    # Simpan laporan ke dalam file HTML
-   report.to_file("report.html")
+report.to_file("report.html")
    
    # Baca isi file HTML
-   html_file = open("report.html", "r")
-   html_content = html_file.read()
+html_file = open("report.html", "r")
+html_content = html_file.read()
    
    # Menampilkan laporan HTML dalam aplikasi Streamlit sebagai komponen HTML
-   st.components.v1.html(html_content, width=1000, height=1000, scrolling=True)
+st.components.v1.html(html_content, width=1000, height=1000, scrolling=True)
