@@ -531,22 +531,22 @@ if kmean == "Pie Chart" :
 cus_data['ClusterID'] = labels
 def generate_cluster_labels(clust):
     if clust == 2:
-        return {0: 'Lost/Need Attention', 1: 'Current Customer'}
+        return {0: 'Occasional Spenders', 1: 'Frequent Buyers'}
     elif clust == 3:
-        return {0: 'Lost/Need Attention', 1: 'Current Customer', 2: 'Top/Best Customer'}
+        return {0: 'Regular Customers', 1: 'Inactive Customer', 2: 'Premium Shoppers'}
     elif clust == 4:
-        return {0: 'Lost/Need Attention', 1: 'Current Customer', 2: 'Top/Best Customer', 3: 'Cluster 3'}
+        return {0: 'Moderate Buyers', 1: 'Occasional Customer', 2: 'High-Value Regular Customers', 3: 'Infrequent Low Spenders'}
     # Tambahkan kondisi elif untuk nilai clust lainnya sampai 10
     elif clust == 5:
-        return {0: 'Lost/Need Attention', 1: 'Current Customer', 2: 'Top/Best Customer', 3: 'Cluster 3', 4: 'Cluster 4'}
+        return {0: 'High-Value Regular Buyers, 1: 'Occasional Buyers', 2: 'Infrenquent Low Spenders', 3: 'Moderate Buyers', 4: 'High-Value Infrenquent Shoppers'}
     elif clust == 6:
-        return {0: 'Lost/Need Attention', 1: 'Current Customer', 2: 'Top/Best Customer', 3: 'Cluster 3', 4: 'Cluster 4', 5: 'Cluster 5'}
+        return {0: 'Low-Spending Infrenquent Shoppers', 1: 'Moderate Spending Regular Shoppers', 2: 'High-Value Frequent Shoppers', 3: 'Moderate Spending Occasional Shoppers', 4: 'High-Spending Regular Shoppers', 5: 'Very High-Value Infrenquent Shoppers'}
     elif clust == 7:
-        return {0: 'Lost/Need Attention', 1: 'Current Customer', 2: 'Top/Best Customer', 3: 'Cluster 3', 4: 'Cluster 4', 5: 'Cluster 5', 6: 'Cluster 6'}
+        return {0: 'Regular Moderate Spenders', 1: 'Infrequent High-Spenders', 2: 'High-Value Occasional Buyers', 3: 'Occasional Moderate Spenders', 4: 'Frequent Big Spenders', 5: 'Regular Low Spenders', 6: 'Frequent Big Spenders'}
     elif clust == 8:
-        return {0: 'Lost/Need Attention', 1: 'Current Customer', 2: 'Top/Best Customer', 3: 'Cluster 3', 4: 'Cluster 4', 5: 'Cluster 5', 6: 'Cluster 6', 7: 'Cluster 7'}
+        return {0: 'Occasional High-Spenders', 1: 'Moderate Spenders', 2: 'Low Spenders', 3: 'Frequent Big Spenders', 4: 'Occasional Moderate Spenders', 5: 'Big Spenders', 6: 'Regular Spenders', 7: 'Frequent Low Spenders'}
     elif clust == 9:
-        return {0: 'Lost/Need Attention', 1: 'Current Customer', 2: 'Top/Best Customer', 3: 'Cluster 3', 4: 'Cluster 4', 5: 'Cluster 5', 6: 'Cluster 6', 7: 'Cluster 7', 8: 'Cluster 8'}
+        return {0: 'Occasional Spenders', 1: 'Infrequent Bargain Shoppers', 2: 'Frequent High Spenders', 3: 'Moderate Consistent Buyers', 4: 'Regular Moderate Spenders', 5: 'Intermittent Budget Shoppers', 6: 'Steady Moderate Buyers', 7: 'Frequent Big Spenders', 8: 'Consistent Low Spenders'}
     else:
         return {i: f'Cluster {i}' for i in range(clust)}
 
@@ -669,17 +669,17 @@ if output == "K-Means Segments" :
         st.markdown(duaa)
     if clust == 3 :
         tigaa = """
-        \n**Cluster 0: "Premium Shoppers"**
+        \n**Cluster 2: "Premium Shoppers"**
         \n•	Karakteristik Pelanggan:
             Memiliki nilai Frequency dan Monetary yang tinggi, menunjukkan bahwa pelanggan dalam cluster ini adalah pembeli yang aktif dan memberikan kontribusi finansial yang besar bagi perusahaan. Mereka mungkin sering membeli produk dengan nilai yang tinggi.
         \n•	Strategi Pemasaran:
             Fokus pada pembangunan loyalitas dengan program khusus, seperti program loyalitas premium dengan insentif tambahan, diskon eksklusif, dan akses ke penawaran khusus.
-        \n**Cluster 1: "Regular Customers"**
+        \n**Cluster 0: "Regular Customers"**
         \n•	Karakteristik Pelanggan:
             Memiliki tingkat aktivitas belanja yang cukup tinggi dan memberikan kontribusi finansial yang signifikan bagi perusahaan. Mereka cenderung melakukan pembelian secara teratur, meskipun tidak sebanyak "Premium Shoppers".
         \n•	Strategi Pemasaran:
             Pertahankan keterlibatan dengan menawarkan promosi berbasis frekuensi dan program reward untuk memberikan insentif kepada pelanggan yang sering berbelanja. Lakukan kampanye retensi yang bertujuan untuk memastikan bahwa pelanggan merasa dihargai dan ingin terus berbelanja.
-        \n**Cluster 2: "Inactive Customers"**
+        \n**Cluster 1: "Inactive Customers"**
         \n•	Karakteristik Pelanggan:
             Memiliki nilai Recency yang tinggi, menunjukkan bahwa pelanggan dalam cluster ini cenderung tidak melakukan pembelian baru-baru ini. Selain itu, nilai Frequency dan Monetary mereka juga relatif rendah dibandingkan dengan cluster lainnya, menunjukkan bahwa mereka tidak memberikan kontribusi finansial yang signifikan bagi perusahaan. 
         \n•	Strategi Pemasaran:
