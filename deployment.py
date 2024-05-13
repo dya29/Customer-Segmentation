@@ -57,7 +57,7 @@ plt.style.use('seaborn')
 
 # Navigation
 clust = st.sidebar.slider("Pilih jumlah cluster : ", 2,9,3,1)
-
+report = st.toggle("Profiling Report")
 data = st.sidebar.selectbox(
    "Data",
    ("Isi Dataset","Data Pelanggan"),
@@ -919,6 +919,6 @@ report.to_file("report.html")
 html_file = open("report.html", "r")
 html_content = html_file.read()
 
-
+if report :
 # Menampilkan laporan HTML dalam aplikasi Streamlit sebagai komponen HTML
-st.components.v1.html(html_content, width=1000, height=1000, scrolling=True)
+   st.components.v1.html(html_content, width=1000, height=1000, scrolling=True)
