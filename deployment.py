@@ -60,7 +60,7 @@ clust = st.sidebar.slider("Pilih jumlah cluster : ", 2,9,3,1)
 
 report = st.sidebar.selectbox(
    "Profiling Report",
-   ("Tampilkan"),
+   ("None","Tampilkan"),
    index=None,
    placeholder="Select...",
 )
