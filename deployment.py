@@ -58,12 +58,6 @@ plt.style.use('seaborn')
 # Navigation
 clust = st.sidebar.slider("Pilih jumlah cluster : ", 2,9,3,1)
 
-report = st.sidebar.selectbox(
-   "Profiling Report",
-   ("None","Tampilkan"),
-   index=None,
-   placeholder="Select...",
-)
 data = st.sidebar.selectbox(
    "Data",
    ("Isi Dataset","Data Pelanggan"),
@@ -502,24 +496,7 @@ kmeans.fit_predict(X_scaled)
 labels = kmeans.labels_
 rfm_trans['ClusterID']=labels
 
-import pandas as pd
-import streamlit as st
-from ydata_profiling import ProfileReport
-from pydantic_settings import BaseSettings
 
-if report == "Profiling Report" :
-   report = ProfileReport(rfm_trans, title="Report", html={'style': {'full_width':True}}, explorative=True, missing_diagrams={'bar': True})
-   
-   # Simpan laporan ke dalam file HTML
-   report.to_file("report.html")
-   
-   # Baca isi file HTML
-   html_file = open("report.html", "r")
-   html_content = html_file.read()
-
-
-# Menampilkan laporan HTML dalam aplikasi Streamlit sebagai komponen HTML
-   st.components.v1.html(html_content, width=1000, height=1000, scrolling=True)
 
 ## Plot Distance
 plt.figure(figsize=(10, 7))
@@ -928,3 +905,20 @@ if output == "K-Means Segments" :
             Tawarkan insentif untuk meningkatkan nilai belanja per transaksi, seperti diskon tambahan untuk pembelian dalam jumlah tertentu.
         """
         st.markdown(sembilann)
+import pandas as pd
+import streamlit as st
+from ydata_profiling import ProfileReport
+from pydantic_settings import BaseSettings
+
+report = ProfileReport(rfm_trans, title="Report", html={'style': {'full_width':True}}, explorative=True, missing_diagrams={'bar': True})
+   
+   # Simpan laporan ke dalam file HTML
+report.to_file("report.html")
+   
+   # Baca isi file HTML
+html_file = open("report.html", "r")
+html_content = html_file.read()
+
+
+# Menampilkan laporan HTML dalam aplikasi Streamlit sebagai komponen HTML
+st.components.v1.html(html_content, width=1000, height=1000, scrolling=True)
