@@ -57,7 +57,7 @@ plt.style.use('seaborn')
 
 # Navigation
 clust = st.sidebar.slider("Pilih jumlah cluster : ", 2,9,3,1)
-report = st.toggle("Profiling Report")
+report = st.checkbox("Profiling Report")
 data = st.sidebar.selectbox(
    "Data",
    ("Isi Dataset","Data Pelanggan"),
