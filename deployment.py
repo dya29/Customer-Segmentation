@@ -538,7 +538,7 @@ def generate_cluster_labels(clust):
         return {0: 'Moderate Buyers', 1: 'Occasional Customer', 2: 'High-Value Regular Customers', 3: 'Infrequent Low Spenders'}
     # Tambahkan kondisi elif untuk nilai clust lainnya sampai 10
     elif clust == 5:
-        return {0: 'High-Value Regular Buyers, 1: 'Occasional Buyers', 2: 'Infrenquent Low Spenders', 3: 'Moderate Buyers', 4: 'High-Value Infrenquent Shoppers'}
+        return {0: 'High-Value Regular Buyers', 1: 'Occasional Buyers', 2: 'Infrenquent Low Spenders', 3: 'Moderate Buyers', 4: 'High-Value Infrenquent Shoppers'}
     elif clust == 6:
         return {0: 'Low-Spending Infrenquent Shoppers', 1: 'Moderate Spending Regular Shoppers', 2: 'High-Value Frequent Shoppers', 3: 'Moderate Spending Occasional Shoppers', 4: 'High-Spending Regular Shoppers', 5: 'Very High-Value Infrenquent Shoppers'}
     elif clust == 7:
