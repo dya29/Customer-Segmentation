@@ -517,6 +517,12 @@ if selected == "RFM Segments" :
     col1, col2 = st.columns([9,6])
     col2, col3 = st.columns([7,8])
     with col1 :
+        # plot histogram size label
+        fig = px.histogram(cus_data, 
+                           x = cus_data['Customer_Category'].value_counts().index, 
+                           y = cus_data['Customer_Category'].value_counts().values, 
+                           title = 'The Size of RFM Label',
+                           labels = dict(x = "Customer Segments (Categories)", y ="RFM Label Mean Values"))
         #histogram
         st.subheader("Histogram Visualization of RFM Segements")
         st.write("Total Pelanggan 663 Pelanggan.")
@@ -524,26 +530,79 @@ if selected == "RFM Segments" :
         st.plotly_chart(fig)
     with col2 :
         #pie chart
+        #distribution plot
+        fig = px.pie(df, 
+                     values = cus_data['Customer_Category'].value_counts(), 
+                     names = (cus_data["Customer_Category"].value_counts()).index, 
+                     title = 'Customer Category Distribution')
         st.subheader("Pie Chart Distribution of RFM Segements")
         st.write("Total Pelanggan 663 Pelanggan.")
         st.plotly_chart(fig)
+
+        #scatter 3d
+        fig = px.scatter_3d(rfm_trans, 
+                            x='Recency',
+                            y='Frequency',
+                            z='Monetary',
+                            color='Frequency')
         #scatter 3D
         st.subheader("Scatter 3D Plot")
         # Menampilkan plot di Streamlit
         st.plotly_chart(fig)
     with col3 :
         #wordcloud
+        segment_text = segmentation["Customer Category"].str.split(" ").str.join("_")
+        all_segments = " ".join(segment_text)
+        
+        wc = WordCloud(background_color="orange", 
+                       #max_words=250, 
+                       max_font_size=256, 
+                       random_state=42,
+                       width=800, height=400)
+        wc.generate(all_segments)
+        plt.figure(figsize = (16, 15))
+        plt.imshow(wc)
+        plt.title("RFM Segments", fontsize=18, fontweight="bold")
+        plt.axis('off')
+        # Menyimpan gambar WordCloud ke dalam BytesIO
+        buffer_word = io.BytesIO()
+        wc.to_image().save(buffer_word, format='PNG')
+        buffer_word.seek(0)      
+        
         st.subheader("Word Cloud Visualization of RFM Segements")
         # Menampilkan gambar di Streamlit
         st.image(buffer_word)
+
+        #line plot
+        # Create a figure and axis explicitly
+        fig, ax = plt.subplots(figsize=(14, 7))
+        
+        # Plot the line plot
+        sns.lineplot(x=df_customer_segmentation.index, y=df_customer_segmentation.Avg_RFM_Sum, ax=ax)
+        ax.set_xticklabels(df_customer_segmentation.index, rotation=30, fontsize=14)
         #lineavg
         st.subheader("Line Plot Visualization of RFM Segements")
         st.pyplot(fig)
     with col4 :
+        # visualisasi treemap
+        fig = px.treemap(df_customer_segmentation, 
+                         path=[df_customer_segmentation.index], 
+                         values='Size_RFM_Sum'
+                        )
+        
+        fig.update_layout(title_text='Customer Segmentation',
+                          title_x=0.5, title_font=dict(size=20)
+                          )
+        fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))                
         st.subheader("Treemap Visualization of RFM Segements")
         st.write("Total Pelanggan 663 Pelanggan.")
         st.plotly_chart(fig)
     #scatter matrix
+    # Pairplot scatter matrix
+    fig = px.scatter_matrix(cus_data, 
+                            dimensions=['Recency', 'Frequency', 'Monetary'], 
+                            color="Customer_Category",
+                            width=1000, height=800)
     st.subheader("Scatter Matrix Pairplot Visualization")
     # Menampilkan plot di Streamlit
     st.plotly_chart(fig)
