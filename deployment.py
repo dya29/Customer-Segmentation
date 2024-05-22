@@ -517,39 +517,38 @@ if selected == "RFM Segments" :
     col1, col2 = st.columns([9,6])
     col2, col3 = st.columns([7,8])
     with col1 :
-        # plot histogram size label
-        fig = px.histogram(cus_data, 
-                           x = cus_data['Customer_Category'].value_counts().index, 
-                           y = cus_data['Customer_Category'].value_counts().values, 
-                           title = 'The Size of RFM Label',
-                           labels = dict(x = "Customer Segments (Categories)", y ="RFM Label Mean Values"))
-        #histogram
-        st.subheader("Histogram Visualization of RFM Segements")
-        st.write("Total Pelanggan 663 Pelanggan.")
-        # Menampilkan plot di Streamlit
-        st.plotly_chart(fig)
+        #treemap squarify
+        fig = plt.gcf()
+        ax = fig.add_subplot()
+        fig.set_size_inches(13, 8)
+        plt.clf()
+        squarify.plot(sizes=segmentation['The Number Of Customer'], 
+                              label=['Lost customers',
+                                      'Hibernating customers',
+                                      'Cannot Lose Them',
+                                      'At Risk',
+                                      'About To Sleep',
+                                      'Need Attention',
+                                      'Promising',
+                                      'New Customers',
+                                      'Potential Loyalist',
+                                      'Loyal',
+                                      'Champions'], 
+                                    alpha=0.8, 
+                                    color=["red", "#48BCF5", "#DD6AE1", "blue", "cyan", "magenta", '#B20CB7', "#A4E919"])
+        plt.title("RFM Segments", fontsize=18, fontweight="bold")
+        plt.axis('off')
+        
+        # Menyimpan gambar ke dalam BytesIO
+        buffer_squarify = io.BytesIO()
+        plt.savefig(buffer_squarify, format='png')
+        buffer_squarify.seek(0)
+        
+        st.subheader("Treemap Squarify Visualization of RFM Segements")
+        # Menampilkan gambar di Streamlit
+        st.image(buffer_squarify)
+        
     with col2 :
-        #pie chart
-        #distribution plot
-        fig = px.pie(df, 
-                     values = cus_data['Customer_Category'].value_counts(), 
-                     names = (cus_data["Customer_Category"].value_counts()).index, 
-                     title = 'Customer Category Distribution')
-        st.subheader("Pie Chart Distribution of RFM Segements")
-        st.write("Total Pelanggan 663 Pelanggan.")
-        st.plotly_chart(fig)
-
-        #scatter 3d
-        fig = px.scatter_3d(rfm_trans, 
-                            x='Recency',
-                            y='Frequency',
-                            z='Monetary',
-                            color='Frequency')
-        #scatter 3D
-        st.subheader("Scatter 3D Plot")
-        # Menampilkan plot di Streamlit
-        st.plotly_chart(fig)
-    with col3 :
         #wordcloud
         segment_text = segmentation["Customer Category"].str.split(" ").str.join("_")
         all_segments = " ".join(segment_text)
@@ -583,37 +582,41 @@ if selected == "RFM Segments" :
         #lineavg
         st.subheader("Line Plot Visualization of RFM Segements")
         st.pyplot(fig)
+        
+    with col3 :
+        # plot histogram size label
+        fig = px.histogram(cus_data, 
+                           x = cus_data['Customer_Category'].value_counts().index, 
+                           y = cus_data['Customer_Category'].value_counts().values, 
+                           title = 'The Size of RFM Label',
+                           labels = dict(x = "Customer Segments (Categories)", y ="RFM Label Mean Values"))
+        #histogram
+        st.subheader("Histogram Visualization of RFM Segements")
+        st.write("Total Pelanggan 663 Pelanggan.")
+        # Menampilkan plot di Streamlit
+        st.plotly_chart(fig)
+        
+        #pie chart
+        #distribution plot
+        fig = px.pie(df, 
+                     values = cus_data['Customer_Category'].value_counts(), 
+                     names = (cus_data["Customer_Category"].value_counts()).index, 
+                     title = 'Customer Category Distribution')
+        st.subheader("Pie Chart Distribution of RFM Segements")
+        st.write("Total Pelanggan 663 Pelanggan.")
+        st.plotly_chart(fig)
+
+        #scatter 3d
+        fig = px.scatter_3d(rfm_trans, 
+                            x='Recency',
+                            y='Frequency',
+                            z='Monetary',
+                            color='Frequency')
+        #scatter 3D
+        st.subheader("Scatter 3D Plot")
+        # Menampilkan plot di Streamlit
+        st.plotly_chart(fig)
     with col4 :
-        #treemap squarify
-        fig = plt.gcf()
-        ax = fig.add_subplot()
-        fig.set_size_inches(13, 8)
-        plt.clf()
-        squarify.plot(sizes=segmentation['The Number Of Customer'], 
-                              label=['Lost customers',
-                                      'Hibernating customers',
-                                      'Cannot Lose Them',
-                                      'At Risk',
-                                      'About To Sleep',
-                                      'Need Attention',
-                                      'Promising',
-                                      'New Customers',
-                                      'Potential Loyalist',
-                                      'Loyal',
-                                      'Champions'], 
-                                    alpha=0.8, 
-                                    color=["red", "#48BCF5", "#DD6AE1", "blue", "cyan", "magenta", '#B20CB7', "#A4E919"])
-        plt.title("RFM Segments", fontsize=18, fontweight="bold")
-        plt.axis('off')
-        
-        # Menyimpan gambar ke dalam BytesIO
-        buffer_squarify = io.BytesIO()
-        plt.savefig(buffer_squarify, format='png')
-        buffer_squarify.seek(0)
-        
-        st.subheader("Treemap Squarify Visualization of RFM Segements")
-        # Menampilkan gambar di Streamlit
-        st.image(buffer_squarify)
         # visualisasi treemap
         fig = px.treemap(df_customer_segmentation, 
                          path=[df_customer_segmentation.index], 
