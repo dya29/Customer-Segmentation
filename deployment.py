@@ -58,7 +58,7 @@ plt.style.use('seaborn')
 
 # Navigation
 clust = st.sidebar.slider("Pilih jumlah cluster : ", 2,9,3,1)
-
+st.set_page_config(layout="wide")
 with st.sidebar:
     selected = option_menu("Main Menu", ["Dataset", 'RFM Segments', 'K-Means Segments', 'Pandas Profiling'], 
         icons=['house', 'gear'], menu_icon="cast", default_index=1)
