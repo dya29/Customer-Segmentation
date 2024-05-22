@@ -513,6 +513,41 @@ if rfm == "Scatter 3d Plot" :
     # Menampilkan plot di Streamlit
     st.plotly_chart(fig)
 
+if selected == "RFM Segments" :
+    col1, col2 = st.columns([9,6])
+    col2, col3 = st.columns([7,8])
+    with col1 :
+        #histogram
+        st.subheader("Histogram Visualization of RFM Segements")
+        st.write("Total Pelanggan 663 Pelanggan.")
+        # Menampilkan plot di Streamlit
+        st.plotly_chart(fig)
+    with col2 :
+        #pie chart
+        st.subheader("Pie Chart Distribution of RFM Segements")
+        st.write("Total Pelanggan 663 Pelanggan.")
+        st.plotly_chart(fig)
+        #scatter 3D
+        st.subheader("Scatter 3D Plot")
+        # Menampilkan plot di Streamlit
+        st.plotly_chart(fig)
+    with col3 :
+        #wordcloud
+        st.subheader("Word Cloud Visualization of RFM Segements")
+        # Menampilkan gambar di Streamlit
+        st.image(buffer_word)
+        #lineavg
+        st.subheader("Line Plot Visualization of RFM Segements")
+        st.pyplot(fig)
+    with col4 :
+        st.subheader("Treemap Visualization of RFM Segements")
+        st.write("Total Pelanggan 663 Pelanggan.")
+        st.plotly_chart(fig)
+    #scatter matrix
+    st.subheader("Scatter Matrix Pairplot Visualization")
+    # Menampilkan plot di Streamlit
+    st.plotly_chart(fig)
+
 ## Run KMeans
 # prediction was added
 kmeans = KMeans(n_clusters = clust).fit(X_scaled)
