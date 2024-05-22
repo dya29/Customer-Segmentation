@@ -514,8 +514,7 @@ if rfm == "Scatter 3d Plot" :
     st.plotly_chart(fig)
 
 if selected == "RFM Segments" :
-    col1, col2 = st.columns([9,6])
-    col3, col4 = st.columns(2)
+    col1, col2 = st.columns([12,4])
     with col1 :
         #treemap squarify
         fig = plt.gcf()
@@ -544,7 +543,7 @@ if selected == "RFM Segments" :
         plt.savefig(buffer_squarify, format='png')
         buffer_squarify.seek(0)
         
-        st.subheader("Treemap Squarify Visualization of RFM Segements")
+        st.subheader("Treemap Squarify")
         # Menampilkan gambar di Streamlit
         st.image(buffer_squarify)
         
@@ -568,7 +567,7 @@ if selected == "RFM Segments" :
         wc.to_image().save(buffer_word, format='PNG')
         buffer_word.seek(0)      
         
-        st.subheader("Word Cloud Visualization of RFM Segements")
+        st.subheader("Word Cloud")
         # Menampilkan gambar di Streamlit
         st.image(buffer_word)
 
@@ -580,10 +579,10 @@ if selected == "RFM Segments" :
         sns.lineplot(x=df_customer_segmentation.index, y=df_customer_segmentation.Avg_RFM_Sum, ax=ax)
         ax.set_xticklabels(df_customer_segmentation.index, rotation=30, fontsize=14)
         #lineavg
-        st.subheader("Line Plot Visualization of RFM Segements")
+        st.subheader("Line Plot")
         st.pyplot(fig)
-        
-    with col3 :
+    col3 = st.columns(1)
+    with col3[0] :
         # plot histogram size label
         fig = px.histogram(cus_data, 
                            x = cus_data['Customer_Category'].value_counts().index, 
@@ -591,7 +590,7 @@ if selected == "RFM Segments" :
                            title = 'The Size of RFM Label',
                            labels = dict(x = "Customer Segments (Categories)", y ="RFM Label Mean Values"))
         #histogram
-        st.subheader("Histogram Visualization of RFM Segements")
+        st.subheader("Histogram")
         st.write("Total Pelanggan 663 Pelanggan.")
         # Menampilkan plot di Streamlit
         st.plotly_chart(fig)
@@ -602,7 +601,7 @@ if selected == "RFM Segments" :
                      values = cus_data['Customer_Category'].value_counts(), 
                      names = (cus_data["Customer_Category"].value_counts()).index, 
                      title = 'Customer Category Distribution')
-        st.subheader("Pie Chart Distribution of RFM Segements")
+        st.subheader("Pie Chart Distribution")
         st.write("Total Pelanggan 663 Pelanggan.")
         st.plotly_chart(fig)
 
@@ -616,7 +615,7 @@ if selected == "RFM Segments" :
         st.subheader("Scatter 3D Plot")
         # Menampilkan plot di Streamlit
         st.plotly_chart(fig)
-    with col4 :
+
         # visualisasi treemap
         fig = px.treemap(df_customer_segmentation, 
                          path=[df_customer_segmentation.index], 
@@ -627,7 +626,7 @@ if selected == "RFM Segments" :
                           title_x=0.5, title_font=dict(size=20)
                           )
         fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))                
-        st.subheader("Treemap Visualization of RFM Segements")
+        st.subheader("Treemap")
         st.write("Total Pelanggan 663 Pelanggan.")
         st.plotly_chart(fig)
         #scatter matrix
@@ -636,10 +635,93 @@ if selected == "RFM Segments" :
                                 dimensions=['Recency', 'Frequency', 'Monetary'], 
                                 color="Customer_Category",
                                 width=1000, height=800)
-        st.subheader("Scatter Matrix Pairplot Visualization")
+        st.subheader("Scatter Matrix Pairplot")
         # Menampilkan plot di Streamlit
         st.plotly_chart(fig)
+    col4 = st.columns(1)
+    with col4[0] :
+        st.subheader("Hasil Customer Segmentation Berdasarkan RFM")
+        # Mengambil semua kolom kecuali 'Cluster ID'
+        drop = ['Recency_Score','Frequency_Score','Monetary_Score']
+        satu = cus_data[cus_data['Customer_Category'] == 'Campions'].drop(columns=['ClusterID']+drop)
+        st.write("Pelanggan dengan Label RFM Campion")
+        st.write(satu)
+        drop = ['Recency_Score','Frequency_Score','Monetary_Score']
+        dua = cus_data[cus_data['Customer_Category'] == 'Loyal'].drop(columns=['ClusterID']+drop)
+        st.write("Pelanggan dengan Label RFM Loyal")
+        st.write(dua)
+        drop = ['Recency_Score','Frequency_Score','Monetary_Score']
+        tiga = cus_data[cus_data['Customer_Category'] == 'Potential Loyalist'].drop(columns=['ClusterID']+drop)
+        st.write("Pelanggan dengan Label RFM Potential Loyalist")
+        st.write(tiga)
+        drop = ['Recency_Score','Frequency_Score','Monetary_Score']
+        empat = cus_data[cus_data['Customer_Category'] == 'New Customers'].drop(columns=['ClusterID']+drop)
+        st.write("Pelanggan dengan Label RFM New Customers")
+        st.write(empat)
+        drop = ['Recency_Score','Frequency_Score','Monetary_Score']
+        lima = cus_data[cus_data['Customer_Category'] == 'Promissing'].drop(columns=['ClusterID']+drop)
+        st.write("Pelanggan dengan Label RFM Promissing")
+        st.write(lima)
+        drop = ['Recency_Score','Frequency_Score','Monetary_Score']
+        enam = cus_data[cus_data['Customer_Category'] == 'Need Attention'].drop(columns=['ClusterID']+drop)
+        st.write("Pelanggan dengan Label RFM Need Attention")
+        st.write(enam)
+        drop = ['Recency_Score','Frequency_Score','Monetary_Score']
+        tujuh = cus_data[cus_data['Customer_Category'] == 'About To Sleep'].drop(columns=['ClusterID']+drop)
+        st.write("Pelanggan dengan Label RFM About To Sleep")
+        st.write(tujuh)
+        drop = ['Recency_Score','Frequency_Score','Monetary_Score']
+        delapan = cus_data[cus_data['Customer_Category'] == 'Cannot Lose Them'].drop(columns=['ClusterID']+drop)
+        st.write("Pelanggan dengan Label RFM Cannot Lose Them")
+        st.write(delapan)
+        drop = ['Recency_Score','Frequency_Score','Monetary_Score']
+        sembilan = cus_data[cus_data['Customer_Category'] == 'At Risk'].drop(columns=['ClusterID']+drop)
+        st.write("Pelanggan dengan Label RFM At Risk")
+        st.write(sembilan)
+        drop = ['Recency_Score','Frequency_Score','Monetary_Score']
+        sepuluh = cus_data[cus_data['Customer_Category'] == 'Hibernating Customers'].drop(columns=['ClusterID']+drop)
+        st.write("Pelanggan dengan Label RFM Hibernating Customers")
+        st.write(sepuluh)
+        drop = ['Recency_Score','Frequency_Score','Monetary_Score']
+        sebelas = cus_data[cus_data['Customer_Category'] == 'Lost Customers'].drop(columns=['ClusterID']+drop)
+        st.write("Pelanggan dengan Label RFM Lost Customers")
+        st.write(sebelas)
 
+        st.subheader("Karakteristik Pelanggan dan Strategi Pemasaran berdasarkan RFM Segments")
+        st.write("**Champion**")
+        st.write("•	Karakteristik: Baru-baru ini melakukan pembelian, sering melakukan pemesanan, dan menghabiskan jumlah uang tertinggi.")
+        st.write("•	Strategi: Memberikan penghargaan kepada mereka karena loyalitasnya. Mereka merupakan calon early adopters produk baru dan kemungkinan besar akan mempromosikan merek Anda. Dapat memberikan referensi kepada orang lain.")
+        st.write("**Loyal**")
+        st.write("•	Karakteristik: Melakukan pemesanan secara teratur dan responsif terhadap promosi.")
+        st.write("•	Strategi: Meningkatkan penjualan dengan menawarkan produk bernilai lebih tinggi kepada mereka. Meminta ulasan atau testimoni dari mereka juga bisa membantu.")
+        st.write("**Potential Loyalists**")
+        st.write("•	Karakteristik: Pelanggan baru-baru ini yang telah menghabiskan jumlah yang layak.")
+        st.write("•	Strategi: Menawarkan program keanggotaan atau program loyalitas untuk mempertahankan keterlibatan mereka. Rekomendasi yang dipersonalisasi dapat meningkatkan keterlibatan mereka.")
+        st.write("**New Customers**")
+        st.write("•	Karakteristik: Baru saja melakukan pembelian.")
+        st.write("•	Strategi: Memberikan dukungan onboarding, memberi mereka akses lebih awal, dan memulai membangun hubungan yang baik dengan mereka.")
+        st.write("**Promissing**")
+        st.write("•	Karakteristik: Potensial menjadi pelanggan setia beberapa bulan yang lalu. Meskipun sering melakukan pembelian dengan jumlah yang baik, pembelian terakhir mereka sudah beberapa minggu yang lalu.")
+        st.write("•	Strategi: Menawarkan kupon atau diskon untuk membawa mereka kembali ke platform dan mempertahankan keterlibatan mereka. Rekomendasi yang dipersonalisasi juga dapat membantu.")
+        st.write("**Need Attention**")
+        st.write("•	Karakteristik: Pelanggan inti yang pembelian terakhirnya lebih dari satu bulan yang lalu.")
+        st.write("•	Strategi: Menawarkan penawaran terbatas atau rekomendasi yang dipersonalisasi untuk mempertahankan hubungan dengan mereka.")
+        st.write("**About To Sleep**")
+        st.write("•	Karakteristik: Terakhir kali melakukan pembelian jauh sebelumnya, tetapi dalam 4 minggu terakhir mereka telah mengunjungi situs atau membuka pesan.")
+        st.write("•	Strategi: Membuat subjek pesan yang sangat dipersonalisasi atau memberikan diskon spesifik pada produk tertentu untuk membangkitkan kembali minat mereka.")
+        st.write("**Cannot Lose Them But Losing**")
+        st.write("•	Karakteristik: Melakukan pembelian besar dan sering, namun sudah lama tidak kembali.")
+        st.write("•	Strategi: Mencoba memenangkan mereka kembali melalui perpanjangan layanan atau produk baru. Fokus pada personalisasi tinggi untuk mempertahankan mereka.")
+        st.write("**At Risk**")
+        st.write("•	Karakteristik: Mirip dengan 'Cannot Lose Them' namun dengan nilai moneter dan frekuensi yang lebih rendah.")
+        st.write("•	Strategi: Menyediakan sumber daya yang membantu di situs web atau mengirim pesan yang dipersonalisasi untuk mempertahankan hubungan dengan mereka.")
+        st.write("**Hibernating Customers**")
+        st.write("•	Karakteristik: Pelanggan yang sebelumnya melakukan pembelian yang lebih kecil dan jarang, tetapi sudah lama tidak melakukan pembelian.")
+        st.write("•	Strategi: Mengikutsertakan mereka dalam komunikasi pesan standar, tetapi memeriksa secara teratur agar konten Anda tidak dianggap sebagai spam. Tidak perlu mengalokasikan sumber daya berlebih di segmen ini.")
+        st.write("**Lost Customers**")
+        st.write("•	Karakteristik: Melakukan pembelian terakhir sudah lama dan tidak ada interaksi sama sekali dalam 4 minggu terakhir.")
+        st.write("•	Strategi: Membangkitkan kembali minat mereka melalui kampanye outreach, namun jika tidak berhasil, lebih baik fokus pada segmen lain yang lebih responsif.")
+    if output == "K-Means Segments" :
 ## Run KMeans
 # prediction was added
 kmeans = KMeans(n_clusters = clust).fit(X_scaled)
