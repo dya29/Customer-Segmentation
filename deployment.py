@@ -112,6 +112,8 @@ st.title("Customer Segmentation Kaosdisablon")
 #data
 df2 = pd.read_csv("daftar-pelanggan.csv")
 df2['ID'] = df2['ID'].astype('str')
+
+
 if data == "Data Pelanggan" :
     st.subheader("Data Pelanggan")
     st.write(df2)
@@ -210,6 +212,23 @@ if clus == "Silhouette Coefficient" :
     st.pyplot(fig)
     st.write("**Menunjukkan bahwa nillai yang paling mendekati 1 yaitu dengan jumlah cluster 3.** Tingginya nilai Silhouette Coefficient mengindikasikan bahwa data yang diuji tercluster dengan baik, yaitu memiliki jarak yang besar atau jauh antar satu cluster ke cluster lain, dan jarak yang rendah atau dekat antar objek dalam suatu cluster yang sama.")
 
+if selected == "Dataset" :
+    col1, col2 = st.columns([1,3])
+    col3, col4 = st.columns([1,2])
+    with col1 :
+        st.subheader("Data Pelanggan")
+        st.write(df2)
+    with col2 :
+        st.subheader("Elbow Method")
+        st.pyplot(fig)
+        st.write("Penurunan nilai SSD (Sum of Squared Distances) akan menunjukkan seberapa baik data dapat dijelaskan oleh jumlah cluster tertentu. Pada titik penurunan nilai SSD yang mulai melambat secara signifikan atau menyerupai bentuk (siku) atau (elbow), maka itulah jumlah cluster yang sering dipilih sebagai jumlah cluster yang optimal. **Hasil dari plot Elbow Method jumlah cluster yang paling optimal adalah 3.**")
+    with col3 :
+        st.subheader("Isi Dataset")
+        st.write(df)
+    with col4 :
+        st.subheader("Silhouette Coefficient")
+        st.pyplot(fig)
+        st.write("**Menunjukkan bahwa nillai yang paling mendekati 1 yaitu dengan jumlah cluster 3.** Tingginya nilai Silhouette Coefficient mengindikasikan bahwa data yang diuji tercluster dengan baik, yaitu memiliki jarak yang besar atau jauh antar satu cluster ke cluster lain, dan jarak yang rendah atau dekat antar objek dalam suatu cluster yang sama.")
 
 
 ## RFM Model
