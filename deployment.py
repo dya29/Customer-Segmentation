@@ -212,8 +212,8 @@ if clus == "Silhouette Coefficient" :
     st.write("**Menunjukkan bahwa nillai yang paling mendekati 1 yaitu dengan jumlah cluster 3.** Tingginya nilai Silhouette Coefficient mengindikasikan bahwa data yang diuji tercluster dengan baik, yaitu memiliki jarak yang besar atau jauh antar satu cluster ke cluster lain, dan jarak yang rendah atau dekat antar objek dalam suatu cluster yang sama.")
 
 if selected == "Dataset" :
-    col1, col2 = st.columns([4,8])
-    col3, col4 = st.columns([8,4])
+    col1, col2 = st.columns([4,11])
+    col3, col4 = st.columns([8,7])
     with col1 :
         st.subheader("Data Pelanggan")
         st.write(df2)
