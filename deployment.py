@@ -721,7 +721,6 @@ if selected == "RFM Segments" :
         st.write("**Lost Customers**")
         st.write("•	Karakteristik: Melakukan pembelian terakhir sudah lama dan tidak ada interaksi sama sekali dalam 4 minggu terakhir.")
         st.write("•	Strategi: Membangkitkan kembali minat mereka melalui kampanye outreach, namun jika tidak berhasil, lebih baik fokus pada segmen lain yang lebih responsif.")
-    if output == "K-Means Segments" :
 ## Run KMeans
 # prediction was added
 kmeans = KMeans(n_clusters = clust).fit(X_scaled)
