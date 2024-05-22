@@ -30,6 +30,7 @@ import datetime as dt
 from sklearn.pipeline import Pipeline
 from sklearn.decomposition import PCA
 from yellowbrick.cluster import InterclusterDistance
+from streamlit_option_menu import option_menu
 
 
 # hierarchical Clustering libraries
